@@ -419,6 +419,10 @@ static PLCrashReporter *sharedReporter = nil;
     return [[NSFileManager defaultManager] fileExistsAtPath: [self crashReportPath]];
 }
 
+- (void) handleException:(NSException *) exception {
+    plcrash_log_writer_set_exception(&signal_handler_context.writer, exception);    
+}
+
 
 /**
  * If an application has a pending crash report, this method returns the crash
