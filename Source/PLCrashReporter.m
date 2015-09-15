@@ -409,6 +409,13 @@ static PLCrashReporter *sharedReporter = nil;
     return [self initWithBundle: [NSBundle mainBundle] configuration: configuration];
 }
 
+- (instancetype) initWithConfiguration: (PLCrashReporterConfig *) config reportDirectory: (NSString *) reportDirectory {
+    self = [self initWithConfiguration:config];
+    if (self) {
+        _crashReportDirectory = reportDirectory;
+    }
+    return self;
+}
 
 /**
  * Returns YES if the application has previously crashed and

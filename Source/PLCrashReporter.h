@@ -115,6 +115,8 @@ typedef struct PLCrashReporterCallbacks {
 
 - (instancetype) initWithConfiguration: (PLCrashReporterConfig *) config;
 
+- (instancetype) initWithConfiguration: (PLCrashReporterConfig *) config reportDirectory: (NSString *) reportDirectory;
+
 - (BOOL) hasPendingCrashReport;
 
 - (void) handleException:(NSException *) exception;
