@@ -412,7 +412,7 @@ static PLCrashReporter *sharedReporter = nil;
 - (instancetype) initWithConfiguration: (PLCrashReporterConfig *) config reportDirectory: (NSString *) reportDirectory {
     self = [self initWithConfiguration:config];
     if (self) {
-        _crashReportDirectory = reportDirectory;
+        _crashReportDirectory = [reportDirectory retain];
     }
     return self;
 }
