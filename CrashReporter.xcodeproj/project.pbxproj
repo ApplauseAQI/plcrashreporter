@@ -3330,7 +3330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME}-iOS -configuration Release clean build";
+			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME}-iOS-Simulator -configuration Release clean build";
 		};
 		5C286A6C1BB4299600F3E82C /* Create Framework */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3344,7 +3344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "BUILD_DIR=\"${PROJECT_DIR}/build\" &&\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphonesimulator/lib${PROJECT_NAME}-iOS.a\" &&\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphoneos/lib${PROJECT_NAME}-iOS.a\" &&\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/Release-iphoneuniversal\" &&\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PROJECT_NAME}\" &&\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PROJECT_NAME}.framework\" &&\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &&\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\" &&\n\n# Generate universal binary from desktop, device, and simulator builds.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\" &&\n\n# Move files to appropriate locations in framework paths.\nmv \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\" &&\nln -s \"A\" \"${FRAMEWORK}/Versions/Current\" &&\nln -s \"Versions/Current/Headers\" \"${FRAMEWORK}/Headers\" &&\nln -s \"Versions/Current/Resources\" \"${FRAMEWORK}/Resources\" &&\nln -s \"Versions/Current/${PROJECT_NAME}\" \"${FRAMEWORK}/${PROJECT_NAME}\" &&\ncp \"${SRCROOT}/Resources/Info.plist\" \"${FRAMEWORK}/Resources/Info.plist\"";
+			shellScript = "BUILD_DIR=\"${PROJECT_DIR}/build\" &&\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphonesimulator/libCrashReporter-iphonesimulator.a\" &&\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphoneos/libCrashReporter-iphoneos.a\" &&\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/Release-iphoneuniversal\" &&\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PROJECT_NAME}\" &&\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PROJECT_NAME}.framework\" &&\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &&\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\" &&\n\n# Generate universal binary from desktop, device, and simulator builds.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\" &&\n\n# Move files to appropriate locations in framework paths.\nmv \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\" &&\nln -s \"A\" \"${FRAMEWORK}/Versions/Current\" &&\nln -s \"Versions/Current/Headers\" \"${FRAMEWORK}/Headers\" &&\nln -s \"Versions/Current/Resources\" \"${FRAMEWORK}/Resources\" &&\nln -s \"Versions/Current/${PROJECT_NAME}\" \"${FRAMEWORK}/${PROJECT_NAME}\" &&\ncp \"${SRCROOT}/Resources/Info.plist\" \"${FRAMEWORK}/Resources/Info.plist\"";
 		};
 		5C286A851BB42BB200F3E82C /* Build Device Static Library */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3358,7 +3358,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME}-iOS -configuration Release clean build";
+			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME}-iOS-Device -configuration Release clean build";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5328,6 +5328,7 @@
 				5C286A6A1BB4298D00F3E82C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
